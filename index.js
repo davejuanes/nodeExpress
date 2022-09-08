@@ -12,6 +12,7 @@ app.get('/nueva-ruta', (req, res) => {
   res.send('Hola, soy una nueva ruta')
 })
 
+
 app.get('/products', (req, res) => {
   const products = [];
   const { size } = req.query;
@@ -26,6 +27,10 @@ app.get('/products', (req, res) => {
   }
 
   res.json(products);
+});
+
+app.get('/products/filter', (req, res) => {
+  res.send('Yo soy un filter');
 });
 
 app.get('/products/:id', (req, res) => {

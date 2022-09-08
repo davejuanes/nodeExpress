@@ -22,4 +22,10 @@ router.get('/users', (req, res) => {
   }
 })
 
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+  const users = service.findOne(id);
+  res.json(users);
+});
+
 module.exports = router

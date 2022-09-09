@@ -19,7 +19,12 @@ class UsersService {
   }
 
   create() {
-
+    const newUser = {
+      id: faker.datatype.uuid(),
+      ...data
+    }
+    this.users.push(newUser)
+    return newUser;
   }
   find() {
     return this.users;

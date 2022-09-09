@@ -7,7 +7,7 @@ class ProductsService {
     this.generate();
   }
   generate() {
-    const limit = 100;
+    const limit = 10;
 
     for (let index = 0; index < limit; index++) {
       this.products.push({

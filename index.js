@@ -5,14 +5,14 @@ const routerApi = require('./routes')
 const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler')
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
 const whiteList = ['http://localhost:5500', 'https://myapp.bo'];
 const options = {
   origin: (origin, callback) => {
-    if (whiteList.includes(origin)) {
+    if (whiteList.includes(origin) || !origin) {
       callback(null, true)
     } else {
       callback(new Error('no permitido'))
@@ -36,6 +36,6 @@ app.use(boomErrorHandler);
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log('Mi port' + port);
+  // console.log('Mi port' + port);
 })
 // milayla2020!
